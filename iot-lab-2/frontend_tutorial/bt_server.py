@@ -14,8 +14,8 @@ try:
         print("server recv from: ", clientInfo)
         data = client.recv(size)
         if data:
-            print(data)
-            client.send(data) # Echo back to client
+            print(data.decode("utf-8"))
+            client.send(data.encode("utf-8")) # Echo back to client
 except: 
     print("Closing socket")
     client.close()

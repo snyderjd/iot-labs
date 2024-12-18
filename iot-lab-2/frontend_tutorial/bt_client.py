@@ -8,9 +8,9 @@ while 1:
     text = input("Enter your message: ") # Note change to the old (Python 2) raw_input
     if text == "quit":
         break
-    sock.send(text)
+    sock.send(text.encode("utf-8"))
 
-    data = sock.recv(1024)
+    data = sock.recv(1024).decode("utf-8")
     print("from server: ", data)
 
 sock.close()
