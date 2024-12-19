@@ -15,6 +15,15 @@ try:
     data = sock.recv(1024).decode("utf-8")
     print("From server:", data)
 
+    while 1:
+        text = input("Enter your message: ")
+        if text == "quit":
+            break
+
+        sock.send(text.encode("utf-8"))
+        data = sock.recv(1024).decode("utf-8")
+        print(f"From server: {data}")
+
     sock.close()
 except Exception as e:
     print("Bluetooth error:", e)
